@@ -1,3 +1,6 @@
-<h1>Bot#index</h1>
-<p>Find me in app/views/bot/index.html.erb</p>
-<%= button_to "test", bot_path, class: "btn btn-primary btn-lg" %>
+<h1>Buttons functionalities not implemented yet</h1>
+
+<%= form_for(@buttons_obj, url: bot_path) do |f| %>
+  <%= f.submit 'Run bot', name: 'run' %>
+  <%= f.submit 'Nameless test', name: 'test' %>
+<% end %>

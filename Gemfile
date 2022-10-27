@@ -47,6 +47,7 @@ gem "omniauth-rails_csrf_protection", "~> 1.0"
 gem "rack", "~> 2.2"
 gem "rack-protection", "~> 2.2"
 gem "sidekiq", "~> 6.5"
+gem 'discordrb'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false

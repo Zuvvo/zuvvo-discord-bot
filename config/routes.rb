@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'pages/home'
-  root 'pages#home'
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions',
@@ -9,5 +7,9 @@ Rails.application.routes.draw do
   }
 
   get "about", to: "about#index"
+  get 'bot', to: "bot#index"
+  post 'bot', to: "bot#create"
+  get 'pages/home'
+  root 'pages#home'
 
 end

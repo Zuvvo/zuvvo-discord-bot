@@ -27,10 +27,10 @@ class BotController < ApplicationController
     @bot = Discordrb::Bot.new token: Rails.application.credentials.dig(:discord, :token)#, client_id: Rails.application.credentials.dig(:discord, :app_id)
 
     bot.message(with_text: 'Ping!') do |event|
-      event.respond 'Pong in background!'
+      event.respond 'Pong in background test!'
     end
 
-    bot.run
+    bot.run(true)
   end
 
   def nameless_test

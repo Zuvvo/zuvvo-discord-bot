@@ -9,7 +9,7 @@ class BotController < ApplicationController
 
   def create
     test_run_bot if params[:run]
-    nameless_test if params[:test]
+    test_run_bot_in_background if params[:test]
     close_bot if params[:close]
   end
 
@@ -18,6 +18,16 @@ class BotController < ApplicationController
 
     bot.message(with_text: 'Ping!') do |event|
       event.respond 'Pong!'
+    end
+
+    bot.run
+  end
+
+  def test_run_bot_in_background
+    @bot = Discordrb::Bot.new token: Rails.application.credentials.dig(:discord, :token)#, client_id: Rails.application.credentials.dig(:discord, :app_id)
+
+    bot.message(with_text: 'Ping!') do |event|
+      event.respond 'Pong in background!'
     end
 
     bot.run

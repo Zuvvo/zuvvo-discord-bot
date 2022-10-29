@@ -7,4 +7,4 @@ bot.message(with_text: 'Ping!') do |event|
 end
 
 
-bot.run(true)
+bot.run

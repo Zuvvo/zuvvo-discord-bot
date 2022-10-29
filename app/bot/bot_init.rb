@@ -6,4 +6,4 @@ bot.message(with_text: 'Ping!') do |event|
   event.respond 'Pong production!'
 end
 
-bot.run
+bot.run(true)

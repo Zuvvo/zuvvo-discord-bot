@@ -1,3 +1,2 @@
-web: bin/rails server -p ${PORT:-5000} -e $RAILS_ENV
-web: npm start
+web: bin/rails server
 worker: bundle exec ruby bot/bot_init.rb

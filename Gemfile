@@ -48,6 +48,8 @@ gem "rack", "~> 2.2"
 gem "rack-protection", "~> 2.2"
 gem "sidekiq", "~> 6.5"
 gem 'discordrb'
+gem 'byebug'
+gem 'figaro'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false

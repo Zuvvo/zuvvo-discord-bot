@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'math_game/new'
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions',
@@ -11,5 +12,6 @@ Rails.application.routes.draw do
   post 'bot', to: "bot#create"
   get 'pages/home'
   root 'pages#home'
+  post 'math_game', to: "math_game#create"
 
 end

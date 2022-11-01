@@ -44,6 +44,4 @@ class BotController < ApplicationController
     puts "bot nil? #{bot.nil?}"
     bot.stop unless bot.nil?
   end
-
-
 end

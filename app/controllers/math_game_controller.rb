@@ -15,6 +15,7 @@ class MathGameController < ApplicationController
   end
 
   def math_game_params
+    puts params
     params.require(:math_game).permit(:username, :riddle, :time, :difficulty, :points)
   end
 

@@ -1,6 +1,6 @@
 class MathGameController < ApplicationController
 
-  skip_before_action :verify_authenticity_token, only: [:create]
+  skip_forgery_protection
 
   def new
     @math_game = MathGame.new

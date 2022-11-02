@@ -1,4 +1,5 @@
 class MathGameController < ApplicationController
+
   def new
     @math_game = MathGame.new
   end

@@ -22,10 +22,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_01_135846) do
 
   create_table "math_games", force: :cascade do |t|
     t.bigint "discord_user_id"
-    t.string "riddle"
     t.integer "time"
     t.integer "difficulty"
-    t.integer "points"
+    t.integer "riddles_count"
+    t.string "results"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["discord_user_id"], name: "index_math_games_on_discord_user_id"

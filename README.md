@@ -1,24 +1,9 @@
-# README
+## Discord bot website - WIP
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This project serves as website and database for the second one with discord bot. It receives and manipulates the data received from the discord bot.
 
-Things you may want to cover:
+Associated project: https://github.com/Zuvvo/zuvvo-discord-bot-hosting
 
-* Ruby version
+## Functionalities
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+You should be able to see here scoreboard for math game. - WIP

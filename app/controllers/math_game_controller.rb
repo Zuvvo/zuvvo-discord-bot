@@ -9,8 +9,9 @@ class MathGameController < ApplicationController
   def create
     p = params
     user = DiscordUser.find_or_create_by(name: p[:host])
-    game = MathGame.new(discord_user: user, time: p[:time], difficulty: p[:difficulty], riddles_count: p[:riddles_count], results: p[:results])
-    # game.save
+    MathGame.new(discord_user: user, time: p[:time],
+                        difficulty: p[:difficulty], riddles_count: p[:riddles_count],
+                        results: p[:results]).save
   end
 
 end

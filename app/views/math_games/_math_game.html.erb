@@ -3,5 +3,6 @@
   <td><%= math_game.time %>  </td>
   <td><%= math_game.difficulty %>  </td>
   <td><%= math_game.riddles_count %>  </td>
+  <td><%= (math_game.created_at).localtime.strftime("%b %e %R %Y") %>  </td>
   <td><%= math_game.results %>  </td>
 </tr>

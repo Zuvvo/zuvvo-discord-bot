@@ -6,6 +6,10 @@ class MathGameController < ApplicationController
     @math_game = MathGame.new
   end
 
+  def home
+    @games = MathGame.all
+  end
+
   def create
     p = params
     user = DiscordUser.find_or_create_by(name: p[:host])

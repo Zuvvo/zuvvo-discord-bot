@@ -10,6 +10,12 @@ class MathGame < ApplicationRecord
     hash_results.keys.join(', ')
   end
 
+  def detailed_scores
+    scoreboard = hash_results.sort_by {|k,v| v}.reverse
+    puts "#{scoreboard}"
+    scoreboard.join(':<br>')
+  end
+
   private
   def hash_results
     output = {}

@@ -1,6 +1,4 @@
-require 'spec_helper'
-require './app/models/math_game'
-
+require 'rails_helper'
 
 describe 'MathGame' do
   it 'creating MathGame object' do

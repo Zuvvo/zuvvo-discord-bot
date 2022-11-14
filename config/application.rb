@@ -19,5 +19,14 @@ module ZuvvoDiscordBot
     # config.time_zone = "Central Time (US & Canada)"
     config.eager_load = true
     config.eager_load_paths += %W(#{config.root}/app/bot)
+    config.generators do |g|
+      g.test_framework(
+      :rspec,
+      fixtures: false,
+      view_specs: false,
+      helper_specs: false,
+      routing_specs: false,
+      )
+    end
   end
 end

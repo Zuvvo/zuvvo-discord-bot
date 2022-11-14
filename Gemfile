@@ -51,6 +51,7 @@ gem 'discordrb'
 gem 'byebug'
 gem 'figaro'
 gem 'rspec'
+gem 'factory_bot'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
@@ -66,6 +67,7 @@ group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem 'rubocop'
   gem "rspec-rails"
+  gem 'factory_bot_rails'
 end
 
 group :development do

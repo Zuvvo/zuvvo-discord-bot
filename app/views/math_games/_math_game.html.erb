@@ -4,6 +4,6 @@
   <td><%= math_game.difficulty %>  </td>
   <td><%= math_game.riddles_count %>  </td>
   <td><%= (math_game.created_at).localtime.strftime("%b %e %R %Y") %>  </td>
-  <td><%= math_game.players %>  </td>
-  <td><%= math_game.winner %>  </td>
+  <td><%= math_game.players.join(', ') %>  </td>
+  <td><%= math_game.winners.join(', ') %>  </td>
 </tr>

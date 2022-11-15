@@ -47,7 +47,6 @@ gem "omniauth-rails_csrf_protection", "~> 1.0"
 gem "rack", "~> 2.2"
 gem "rack-protection", "~> 2.2"
 gem "sidekiq", "~> 6.5"
-gem 'discordrb'
 gem 'byebug'
 gem 'figaro'
 gem 'rspec'

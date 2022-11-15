@@ -11,6 +11,10 @@ class MathGame < ApplicationRecord
     hash_results.keys
   end
 
+  def player_points(name)
+    hash_results[name]
+  end
+
   private
 
   def hash_results

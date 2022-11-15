@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'math_game/new'
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions',
@@ -14,5 +13,8 @@ Rails.application.routes.draw do
   root 'pages#home'
   post 'math_game', to: 'math_game#create'
   get 'math_game', to: 'math_game#home'
+  get 'math_game/new'
+
+  get '/discord_users/:id', to: 'discord_user#show', as: 'discord_user'
 
 end

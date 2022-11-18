@@ -51,6 +51,8 @@ gem 'byebug'
 gem 'figaro'
 gem 'rspec'
 gem 'factory_bot'
+gem 'graphql'
+gem 'graphiql-rails', github: "rmosolgo/graphiql-rails", group: :development
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false

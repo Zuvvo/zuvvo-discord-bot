@@ -6,5 +6,5 @@
   <td><%= math_game.riddles_count %>  </td>
   <td><%= (math_game.created_at).localtime.strftime("%b %e %R %Y") %>  </td>
   <td><%= create_links_for_players(math_game.players) %>  </td>
-  <td><%= math_game.winners.join(', ') %>  </td>
+  <td><%= create_links_for_players(math_game.winners) %>  </td>
 </tr>

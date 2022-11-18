@@ -10,15 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_01_135846) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_18_172813) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "discord_users", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "math_game_results", force: :cascade do |t|
+    t.bigint "math_game_id", null: false
+    t.bigint "discord_user_id", null: false
+    t.integer "points"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["discord_user_id"], name: "index_math_game_results_on_discord_user_id"
+    t.index ["math_game_id"], name: "index_math_game_results_on_math_game_id"
+  end
+
   create_table "math_games", force: :cascade do |t|
-    t.integer "discord_user_id"
+    t.bigint "discord_user_id"
     t.integer "time"
     t.integer "difficulty"
     t.integer "riddles_count"
@@ -50,5 +63,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_01_135846) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "math_game_results", "discord_users"
+  add_foreign_key "math_game_results", "math_games"
   add_foreign_key "math_games", "discord_users"
 end

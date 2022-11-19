@@ -1,10 +1,14 @@
 <h3>
   Statistics for player <%= @discord_user.name %>
   <h4>
-    <br>Games played: <%= @discord_user.games_played.size %>
-    <br>Games won: <%= @discord_user.won_games.size %>
-    <br>Games lost: <%= @discord_user.lost_games.size %>
-    <br>Good answers: <%= "#{@discord_user.total_riddles_solved} / #{@discord_user.total_riddles_participated} (#{(@discord_user.good_answers_percent * 100).round(2)}% )" %> <%= %>
-    <br>Preferred difficulty: <%= @discord_user.preferred_difficulty %> <%= %>
+  <% if @discord_user.games_played.size > 0 %>
+      <br>Games played: <%= @discord_user.games_played.size %>
+      <br>Games won: <%= @discord_user.won_games.size %>
+      <br>Games lost: <%= @discord_user.lost_games.size %>
+      <br>Good answers: <%= "#{@discord_user.total_riddles_solved} / #{@discord_user.total_riddles_participated} (#{(@discord_user.good_answers_percent * 100).round(2)}% )" %> <%= %>
+      <br>Preferred difficulty: <%= @discord_user.preferred_difficulty %> <%= %>
+  <% else %>
+    <br> This user has not played a single game.
+  <% end %>
   </h4>
 </h3>

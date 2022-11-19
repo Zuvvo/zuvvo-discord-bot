@@ -16,6 +16,21 @@ class MathGame < ApplicationRecord
     hash_results[name]
   end
 
+  def add_game_results(results)
+    output = {}
+    scores = results[1..].scan(/\[(.*?)\]/)
+    scores.each do |arr|
+      s = arr[0].split(', ')
+      output[s[0].gsub('"', '')] = s[1].to_i
+    end
+    output
+    output.sort_by { |k, v| v }.reverse.to_h
+    output.each do |k, v|
+      user = DiscordUser.find_or_create_by(name: k)
+      math_game_results << MathGameResult.new(math_game: self, discord_user: user, points: v)
+    end
+  end
+
   private
 
   def hash_results

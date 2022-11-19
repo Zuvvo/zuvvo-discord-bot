@@ -5,7 +5,7 @@ class DiscordUser < ApplicationRecord
   end
 
   def lost_games
-    games_played.select { |game| !game.winners.include?(name) }
+    games_played.reject { |game| game.winners.include?(name) }
   end
 
   def games_played
@@ -25,7 +25,8 @@ class DiscordUser < ApplicationRecord
   end
 
   def preferred_difficulty
-    games_played.max_by {|game| game.difficulty }.difficulty
+    puts "GAME PLAYED COUNT: #{games_played.count}"
+    games_played.max_by(&:difficulty).difficulty
   end
 
 end

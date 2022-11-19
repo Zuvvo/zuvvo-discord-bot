@@ -21,7 +21,6 @@ module Mutations
     def resolve(results:, host_name:, time:, difficulty:)
       @math_game = MathGame.new(discord_user: DiscordUser.find_or_create_by(name: host_name), time: time, difficulty: difficulty)
       @math_game.add_game_results(results)
-      # puts @math_game.math_game_results.size
       if @math_game.save
         {
           math_game: @math_game,

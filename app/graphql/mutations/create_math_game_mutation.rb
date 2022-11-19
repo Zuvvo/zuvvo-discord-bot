@@ -18,8 +18,12 @@ module Mutations
       description "This is difficulty of the game set by host"
     end
 
-    def resolve(results:, host_name:, time:, difficulty:)
-      @math_game = MathGame.new(discord_user: DiscordUser.find_or_create_by(name: host_name), time: time, difficulty: difficulty)
+    argument :riddles_count, Int, required: true do
+      description "This is difficulty of the game set by host"
+    end
+
+    def resolve(results:, host_name:, time:, difficulty:, riddles_count:)
+      @math_game = MathGame.new(discord_user: DiscordUser.find_or_create_by(name: host_name), time: time, difficulty: difficulty, riddles_count: riddles_count)
       @math_game.add_game_results(results)
       if @math_game.save
         {

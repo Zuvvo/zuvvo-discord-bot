@@ -1,5 +1,6 @@
 class MathGame < ApplicationRecord
   belongs_to :discord_user
+  has_many :math_game_results
 
   def winners
     scoreboard = hash_results
@@ -8,7 +9,7 @@ class MathGame < ApplicationRecord
   end
 
   def players
-    hash_results.keys
+    math_game_results.to_a.map { |result| result.discord_user.name }
   end
 
   def player_points(name)
@@ -19,11 +20,9 @@ class MathGame < ApplicationRecord
 
   def hash_results
     output = {}
-    scores = results[1..].scan(/\[(.*?)\]/)
-    scores.each do |arr|
-      s = arr[0].split(', ')
-      output[s[0].gsub('"', '')] = s[1].to_i
+    scores = math_game_results.to_a.each do |result|
+      output[result.discord_user.name] = result.points
     end
-    output
+    output.sort_by { |k, v| v }.reverse.to_h
   end
 end

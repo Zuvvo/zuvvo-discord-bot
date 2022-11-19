@@ -10,10 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_18_172813) do
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
+ActiveRecord::Schema[7.0].define(version: 2022_11_18_220740) do
   create_table "discord_users", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -21,8 +18,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_18_172813) do
   end
 
   create_table "math_game_results", force: :cascade do |t|
-    t.bigint "math_game_id", null: false
-    t.bigint "discord_user_id", null: false
+    t.integer "math_game_id", null: false
+    t.integer "discord_user_id", null: false
     t.integer "points"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -31,11 +28,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_18_172813) do
   end
 
   create_table "math_games", force: :cascade do |t|
-    t.bigint "discord_user_id"
+    t.integer "discord_user_id"
     t.integer "time"
     t.integer "difficulty"
     t.integer "riddles_count"
-    t.string "results"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["discord_user_id"], name: "index_math_games_on_discord_user_id"

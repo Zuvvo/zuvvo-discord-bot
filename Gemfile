@@ -53,6 +53,7 @@ gem 'rspec'
 gem 'factory_bot'
 gem 'graphql'
 gem 'graphiql-rails', github: "rmosolgo/graphiql-rails", group: :development
+gem 'ffi'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false

@@ -27,7 +27,9 @@ class MathGame < ApplicationRecord
     output.sort_by { |k, v| v }.reverse.to_h
     output.each do |k, v|
       user = DiscordUser.find_or_create_by(name: k)
-      math_game_results << MathGameResult.new(math_game: self, discord_user: user, points: v)
+      result = MathGameResult.new(math_game: self, discord_user: user, points: v)
+      math_game_results << result
+      result.save
     end
   end
 

@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  if Rails.env.development?
-    mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/graphql"
-  end
-  post "/graphql", to: "graphql#execute"
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions',
@@ -10,9 +6,12 @@ Rails.application.routes.draw do
     confirmations: 'users/confirmations',
   }
 
-  get "about", to: 'about#index'
-  get 'bot', to: 'bot#index'
-  post 'bot', to: 'bot#create'
+  if Rails.env.development?
+    mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/graphql"
+  end
+
+  post '/graphql', to: 'graphql#execute'
+  get 'about', to: 'about#index'
   get 'pages/home'
   root 'pages#home'
   post 'math_game', to: 'math_game#create'

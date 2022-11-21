@@ -42,7 +42,7 @@ gem 'pg'
 gem 'omniauth-oauth2'
 gem 'devise'
 gem 'omniauth'
-gem 'omniauth-google-oauth2'
+gem 'omniauth-discord'
 gem "omniauth-rails_csrf_protection", "~> 1.0"
 gem "rack", "~> 2.2"
 gem "rack-protection", "~> 2.2"

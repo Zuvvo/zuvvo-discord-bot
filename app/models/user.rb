@@ -7,16 +7,14 @@ class User < ApplicationRecord
 
   def self.from_omniauth(auth)
     user = User.where(provider: auth.provider, uid: auth.uid).first
-    puts "USER nil: #{user.nil?}"
-    puts auth
-    unless user
-      user = User.create(
-        email: 'zxc@gmail.com',
-        password: Devise.friendly_token[0,20],
-        full_name: auth.info.name,
-        avatar_url: auth.info.image
-      )
-    end
+    user ||= User.create(
+      provider: auth.provider,
+      uid: auth.uid,
+      email: 'zxc@gmail.com',
+      password: Devise.friendly_token[0, 20],
+      full_name: auth.info.name,
+      avatar_url: auth.info.image
+    )
     user
   end
 end

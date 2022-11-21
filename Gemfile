@@ -55,6 +55,9 @@ gem 'graphql'
 gem 'graphiql-rails', github: "rmosolgo/graphiql-rails", group: :development
 gem 'ffi'
 
+gem "webpacker"
+gem 'jquery-rails'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 

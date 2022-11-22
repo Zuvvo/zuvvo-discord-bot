@@ -8,5 +8,6 @@
     "webpack-dev-server": "3"
   },
   "author": "Zuvvo",
-  "license": "ISC"
+  "license": "ISC",
+  "start": "react-scripts --openssl-legacy-provider start"
 }
